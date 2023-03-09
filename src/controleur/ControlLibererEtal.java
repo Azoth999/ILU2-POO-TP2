@@ -3,12 +3,13 @@ package controleur;
 public class ControlLibererEtal {
 	private ControlTrouverEtalVendeur controlTrouverEtalVendeur;
 
-	public ControlLibererEtal(
-			ControlTrouverEtalVendeur controlTrouverEtalVendeur) {
+	public ControlLibererEtal(ControlTrouverEtalVendeur controlTrouverEtalVendeur) {
 		this.controlTrouverEtalVendeur = controlTrouverEtalVendeur;
 	}
 
-	//TODO a completer
+	public void viderEtal(String nomVendeur) {
+		controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur).libererEtal();
+	}
 
 	/**
 	 * 
@@ -19,9 +20,15 @@ public class ControlLibererEtal {
 	 *         quantité de produit vendu
 	 */
 	public String[] libererEtal(String nomVendeur) {
-		//TODO a completer
-		String[] donneesEtal = null;
-		return donneesEtal;
+		String[] info;
+		info = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur).etatEtal();
+		viderEtal(nomVendeur);
+		return info;
+
+	}
+
+	public Boolean isVendeur(String nomVendeur) {
+		return controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur) != null;
 	}
 
 }
