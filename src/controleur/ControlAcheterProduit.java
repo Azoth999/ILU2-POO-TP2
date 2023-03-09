@@ -5,15 +5,17 @@ import villagegaulois.Village;
 public class ControlAcheterProduit {
 	private Village village;
 	private ControlTrouverEtalVendeur controlTrouverEtalVendeur;
+	private ControlVerifierIdentite controlVerifierIdentite;
 
 	public ControlAcheterProduit(ControlVerifierIdentite controlVerifierIdentite,
 			ControlTrouverEtalVendeur controlTrouverEtalVendeur, Village village) {
 		this.village = village;
+		this.controlVerifierIdentite = controlVerifierIdentite;
 		this.controlTrouverEtalVendeur = controlTrouverEtalVendeur;
 	}
 
 	public Boolean existVendeur(String produit) {
-		return !(village.rechercherVendeursProduit(produit) == null);
+		return village.rechercherVendeursProduit(produit) != null;
 	}
 
 	public String[] vendeursProduit(String produit) {
@@ -44,6 +46,10 @@ public class ControlAcheterProduit {
 
 	public void venteProduit(String nomVendeur, int qtyVendue) {
 		controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur).acheterProduit(qtyVendue);
+	}
+
+	public Boolean isAcheteurValide(String acheteur) {
+		return controlVerifierIdentite.verifierIdentite(acheteur);
 	}
 
 }

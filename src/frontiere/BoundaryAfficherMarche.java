@@ -10,7 +10,6 @@ public class BoundaryAfficherMarche {
 	}
 
 	public void afficherMarche(String nomAcheteur) {
-		System.out.println("coucou");
 		String[] infosMarche = controlAfficherMarche.donnerInfosMarche();
 		if (infosMarche.length == 0) {
 			StringBuilder vide = new StringBuilder();
