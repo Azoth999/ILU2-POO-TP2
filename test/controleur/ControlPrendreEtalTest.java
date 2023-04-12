@@ -1,6 +1,9 @@
 package controleur;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -67,7 +70,6 @@ class ControlPrendreEtalTest {
 	void testPrendreEtal() {
 		ControlPrendreEtal controlPrendreEtal = new ControlPrendreEtal(controlVerifierIdentite, village);
 		assertEquals(1, controlPrendreEtal.prendreEtal("Albert", "pomme", 10));
-		//Corriger le fait que le premier étal est égal à 0, il faudrait 1.
 
 	}
 
