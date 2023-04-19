@@ -1,5 +1,7 @@
 package controleur;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -33,17 +35,30 @@ class ControlAfficherVillageTest {
 
 	@Test
 	void testDonnerNomsVillageois() {
-		fail("Not yet implemented");
+		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
+		String[] noms = new String[2];
+		noms[0] = chef.getNom();
+		noms[1] = gaulois.getNom();
+		assertArrayEquals(noms, controlAfficherVillage.donnerNomsVillageois());
+		Gaulois phil = new Gaulois("Phil", 5);
+		village.ajouterHabitant(phil);
+		noms = new String[3];
+		noms[0] = chef.getNom();
+		noms[1] = gaulois.getNom();
+		noms[2]= phil.getNom();
+		assertArrayEquals(noms, controlAfficherVillage.donnerNomsVillageois());
 	}
 
 	@Test
 	void testDonnerNomVillage() {
-		fail("Not yet implemented");
+		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
+		assertEquals("Village d'irreductibles", controlAfficherVillage.donnerNomVillage());
 	}
 
 	@Test
 	void testDonnerNbEtals() {
-		fail("Not yet implemented");
+		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
+		assertEquals(5, controlAfficherVillage.donnerNbEtals());
 	}
 
 }
